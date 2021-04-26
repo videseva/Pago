@@ -32,8 +32,6 @@ namespace Logica
                 return new GuardarTerceroResponse("Ocurrieron algunos Errores:" + e.Message);
             }
         }
-
-    
         public ConsultarTerceroResponse Consultar()
         {
             try
@@ -46,8 +44,6 @@ namespace Logica
                 return new ConsultarTerceroResponse("Ocurriern algunos Errores:" + e.Message);
             }
         }
-
-
 
 //Response
         public class GuardarTerceroResponse

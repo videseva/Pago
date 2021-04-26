@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-body">
+        <h3>Registro de Tercero</h3>
+        <hr>
+        <form class="row">
+            <div class="form-group col-md-6">
+                <label>Identificación *</label>
+                <input type="text" class="form-control" name="identificacion"  [(ngModel)]="tercero.TerceroId" placeholder="Identificación">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Nombre completo *</label>
+                <input type="text" class="form-control" name="nombre" [(ngModel)]="tercero.Nombre" placeholder="Nombres">
+            </div>  
+            <div class="form-group col-md-6">
+                <label>Telefono  *</label>
+                <input type="number" class="form-control" name="telefono" [(ngModel)]="tercero.Telefono" placeholder="telefono">
+            </div>  
+            <div class="col-md-3">
+                <button  class="btn btn-success" (click)="RegistrarTercero()">Registrar Tercero </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary">Limpiar campos</button>
+            </div>
+        </form> 
+    </div>
+</div>
