@@ -15,7 +15,6 @@ namespace Entidad
         public decimal Valor { get; set;}
          [Column(TypeName = "decimal(18,4)")]
         public decimal Iva { get =>Valor*PorcentajeIva/100; set{}}
-
          [Column(TypeName = "decimal(18,4)")]
         public decimal Total {get=>Valor+Iva; set{}}
 
