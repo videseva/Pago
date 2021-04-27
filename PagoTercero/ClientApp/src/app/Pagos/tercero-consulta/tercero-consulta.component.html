@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-body">
+        <h3>CONSULTAR ESTUDIANTES</h3>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identificación</th>
+                    <th>Nombre</th>
+                    <th>telefono</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tercero of terceros; index as i" >
+                    <td>{{tercero.TerceroId}}</td>
+                    <td>{{tercero.Nombre}}</td>
+                    <td>{{tercero.Telefono}}</td>
+            </tbody>
+        </table>
+    </div>
+</div>

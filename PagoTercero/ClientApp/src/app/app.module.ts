@@ -11,6 +11,9 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { TerceroRegistroComponent } from './Pagos/tercero-registro/tercero-registro.component';
 import { AppRoutingModule } from './app-routing.module';
+import { TerceroService} from'../app/services/tercero.service';
+import { from } from 'rxjs';
+import { TerceroConsultaComponent } from './Pagos/tercero-consulta/tercero-consulta.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    TerceroRegistroComponent
+    TerceroRegistroComponent,
+    TerceroConsultaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +36,7 @@ import { AppRoutingModule } from './app-routing.module';
 ], { relativeLinkResolution: 'legacy' }),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [TerceroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

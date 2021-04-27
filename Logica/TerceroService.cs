@@ -19,15 +19,19 @@ namespace Logica
         }
 
         public GuardarTerceroResponse GuardarTercero(Tercero tercero){
-            try{
+            try
+            {
                 var _tercero = _context.Terceros.Find(tercero.TerceroId);
-                if(tercero == null){
+                if (_tercero == null)
+                {
                     _context.Terceros.Add(tercero);
                     _context.SaveChanges();
                     return new GuardarTerceroResponse(tercero);
                 }
-                    return new GuardarTerceroResponse("El tercero ya se encuentra registrado");
-            }catch (Exception e)
+
+                return new GuardarTerceroResponse("El tercero ya se encuentra Registrado");
+            }
+            catch (Exception e)
             {
                 return new GuardarTerceroResponse("Ocurrieron algunos Errores:" + e.Message);
             }
