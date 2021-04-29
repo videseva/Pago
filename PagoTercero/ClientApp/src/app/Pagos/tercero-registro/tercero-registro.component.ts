@@ -11,18 +11,29 @@ import {TerceroService} from 'src/app/services/tercero.service';
 })
 export class TerceroRegistroComponent implements OnInit {
   tercero : Tercero;
+  terceros : Tercero[];
   constructor(private terceroServices : TerceroService) { }
 
   ngOnInit(): void {
    this.tercero = new Tercero();
+   this.get();
   }
 
   RegistrarTercero(){
     this.terceroServices.post(this.tercero).subscribe(p => {
       if(p != null){
         alert("Se registro con exito su tercero");
-        this.tercero = p;        
+        this.tercero = p;    
+        this.get();    
       }
     });
   }
+
+  get(){
+    this.terceroServices.get().subscribe(result => {
+      this.terceros = result;
+    });
+    console.log(this.terceros);
+  }
 }
+

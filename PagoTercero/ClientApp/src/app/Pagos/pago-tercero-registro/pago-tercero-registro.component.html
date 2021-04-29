@@ -1,0 +1,68 @@
+<div class="card">
+    <div class="card-body">
+        <h3>Informacion del tercero </h3>
+        <hr>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Identificación *</label>
+                    <input type="text" class="form-control" name="identificacion"  [(ngModel)]="idTercero" placeholder="Identificación">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary"(click)="get()"> Buscar</button>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Nombre completo *</label>
+                    <input type="text" class="form-control" name="nombre"  placeholder="Nombres">
+                </div>  
+                <div class="form-group col-md-3">
+                    <label>Telefono  *</label>
+                    <input type="text" class="form-control" name="telefono"  placeholder="telefono">
+                </div>  
+                <div class="col-md-12">
+                    <br>
+                    <div class="alert alert-dismissible alert-success">{{mensaje}}</div>
+                </div>
+            </div>
+            <h3>Informacion del Pago </h3>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Numero Pago  *</label>
+                    <input type="text" class="form-control" >
+                </div>  
+     
+                <div class="form-group col-md-3">
+                    <label>Fecha  *</label>
+                    <input type="text" class="form-control" >
+                </div>  
+    
+                <div class="form-group col-md-3">
+                    <label>Valor del pago *</label>
+                    <input type="text" class="form-control">
+                </div>  
+    
+                <div class="form-group col-md-6">
+                    <label>Porcentaje de IVA *</label>
+                    <input type="text" class="form-control" >
+                </div>  
+    
+                <div class="form-group col-md-6">
+                    <label>Valor IVA *</label>
+                    <input type="text" class="form-control" >
+                </div>  
+                <div class="form-group col-md-6">
+                    <label>Total  *</label>
+                    <input type="text" class="form-control" >
+                </div>  
+    
+                <div class="col-md-3">
+                    <button  class="btn btn-success" >Registrar</button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary">Limpiar campos</button>
+                </div>
+            </div>
+        </form> 
+    </div>
+</div>

@@ -11,10 +11,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let tercero of terceros; index as i" >
-                    <td>{{tercero.TerceroId}}</td>
-                    <td>{{tercero.Nombre}}</td>
-                    <td>{{tercero.Telefono}}</td>
+                <tr *ngFor="let item of terceros; index as i">
+                    <td>{{item.terceroId}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.telefono}}</td>
+                </tr>
             </tbody>
         </table>
     </div>

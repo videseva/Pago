@@ -50,5 +50,29 @@ namespace PagoTercero.Controllers
             };
             return pago;
         }
+         [HttpGet]
+        public ActionResult<IEnumerable<PagoViewModel>> GetPagos()
+        {
+            var response = _pagoService.Consultar();
+            if (!response.Error)
+            {
+                var PagoViewModels = response.Pagos.Select(p => new PagoViewModel(p));
+                return Ok(PagoViewModels);
+            }
+            return BadRequest(response.Mensaje);
+        }
+
+
+        private Tercero MapearTercero(TerceroInputModel terceroInput)
+        {
+            var tercero = new Tercero()
+            {
+                TerceroId = terceroInput.TerceroId,
+                Nombre = terceroInput.Nombre,
+                Telefono = terceroInput.Telefono,
+            };
+            return tercero;
+        }
+
     }
-}
+    }

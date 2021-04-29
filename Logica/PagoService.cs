@@ -52,7 +52,49 @@ namespace Logica
             }
         }
 
+        
+        public BuscarPagoResponse BuscarPagoPorId(string id)
+        {
+            try
+            {
+                var pago = _context.Pagos.Find(id);
+                if (pago != null)
+                {
+                    return new BuscarPagoResponse(pago);
+                }
+                return new BuscarPagoResponse("El Pago consutado no existe");
+            }
+            catch (Exception e)
+            {
+                return new BuscarPagoResponse("Ocurriern algunos Errores:" + e.Message);
+            }
+        }
+
+        public BuscarPagoResponse BuscarPagoPorIdConTercero(string id)
+        {
+            try
+            {
+                var pago = _context.Pagos.Where(p => p.PagoId == id).Include(p => p.Tercero).FirstOrDefault();
+                if (pago != null)
+                {
+                    return new BuscarPagoResponse(pago);
+                }
+                return new BuscarPagoResponse("El Pago consutado no existe");
+            }
+            catch (Exception e)
+            {
+                return new BuscarPagoResponse("Ocurriern algunos Errores:" + e.Message);
+            }
+        }
+
+
+         
+
+
+
+
         //Response
+        
         public class GuardarPagoResponse{
             public Pago Pago { get; set; }
             public string Mensaje { get; set; }
@@ -74,6 +116,26 @@ namespace Logica
 
     }
 
+     public class BuscarPagoResponse
+    {
+        public Pago Pago { get; set; }
+        public string Mensaje { get; set; }
+        public bool Error { get; set; }
+
+
+        public BuscarPagoResponse(Pago pago)
+        {
+            Pago = pago;
+            Error = false;
+        }
+
+        public BuscarPagoResponse(string mensaje)
+        {
+            Mensaje = mensaje;
+            Error = true;
+        }
+
+    }
     public class ConsultarPagoResponse
     {
         public List<Pago> Pagos { get; set; }

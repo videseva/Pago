@@ -1,5 +1,5 @@
 export class Tercero {
-    TerceroId: string;
-    Nombre: string;
-    Telefono: string;
+    terceroId: string;
+    nombre: string;
+    telefono: string;
 }

@@ -49,7 +49,61 @@ namespace Logica
             }
         }
 
+        public BuscarTerceroResponse BuscarTerceroConPagoPorId(string id)
+        {
+            try
+            {
+                var tercero = _context.Terceros.Where(t => t.TerceroId == id).Include(t => t.Pagos).FirstOrDefault();
+                if (tercero != null)
+                {
+                    return new BuscarTerceroResponse(tercero);
+                }
+                return new BuscarTerceroResponse("El tercero consultado no existe");
+            }
+            catch (Exception e)
+            {
+                return new BuscarTerceroResponse("Ocurriern algunos Errores:" + e.Message);
+            }
+
+        }
+
+         public BuscarTerceroResponse BuscarPorId(string id)
+        {
+            try
+            {
+                var tercero = _context.Terceros.Find(id);
+                if (tercero != null)
+                {
+                    return new BuscarTerceroResponse(tercero);
+                }
+                return new BuscarTerceroResponse("El tercero consultado no existe");
+            }
+            catch (Exception e)
+            {
+                return new BuscarTerceroResponse("Ocurriern algunos Errores:" + e.Message);
+            }
+
+        }
+
 //Response
+        public class BuscarTerceroResponse
+    {
+        public Tercero Tercero { get; set; }
+        public string Mensaje { get; set; }
+        public bool Error { get; set; }
+        public BuscarTerceroResponse(Tercero tercero)
+        {
+            Tercero = tercero;
+            Error = false;
+        }
+
+        public BuscarTerceroResponse(string mensaje)
+        {
+            Mensaje = mensaje;
+            Error = true;
+        }
+
+    }
         public class GuardarTerceroResponse
         {
             public Tercero Tercero { get; set; }
