@@ -8,7 +8,6 @@ namespace Entidad
         public string TerceroId { get; set;}
         public string Nombre { get; set;}
         public string Telefono { get; set;}
-
         public List<Pago> Pagos{ get; set;}
     }
 }

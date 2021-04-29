@@ -8,32 +8,45 @@
                     <form class="row">
                         <div class="form-group col-md-6">
                             <label>Identificación *</label>
-                            <input type="string" class="form-control"  name="identificacion"  [(ngModel)]="tercero.terceroId" placeholder="Identificación">
+                            <input type="string" class="form-control" name="identificacion"
+                                [(ngModel)]="tercero.terceroId" placeholder="Identificación">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nombre completo *</label>
-                            <input type="text" class="form-control" name="nombre" [(ngModel)]="tercero.nombre" placeholder="Nombres">
-                        </div>  
+                            <input type="text" class="form-control" name="nombre" [(ngModel)]="tercero.nombre"
+                                placeholder="Nombres">
+                        </div>
                         <div class="form-group col-md-6">
-                            <label>Telefono  *</label>
-                            <input type="text" class="form-control" name="telefono" [(ngModel)]="tercero.telefono" placeholder="telefono">
-                        </div>  
+                            <label>Telefono *</label>
+                            <input type="text" class="form-control" name="telefono" [(ngModel)]="tercero.telefono"
+                                placeholder="telefono">
+                        </div>
                         <div class="col-md-3">
-                            <button  class="btn btn-success" (click)="RegistrarTercero()">Registrar Tercero </button>
+                            <button class="btn btn-success" (click)="RegistrarTercero()">Registrar Tercero </button>
                         </div>
                         <div class="col-md-3">
                             <button class="btn btn-primary">Limpiar campos</button>
                         </div>
-                    </form> 
+                    </form>
                 </div>
             </div>
-            <br> 
+            <br>
             <hr>
-        </div>   
+        </div>
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h3>CONSULTAR ESTUDIANTES</h3>
+                    <h3>CONSULTAR</h3>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label>filtar : </label>
+                            <input type="text" class="form-control" id="searchText" name="searchText"
+                                [(ngModel)]="searchText" placeholder="Nombre">
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary"> Buscar</button>
+                        </div>
+                    </div>
                     <hr>
                     <table class="table table-striped">
                         <thead>
@@ -44,7 +57,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of terceros; index as i">
+                            <tr *ngFor="let item of terceros|filtroTercero:searchText; index as i">
                                 <td>{{item.terceroId}}</td>
                                 <td>{{item.nombre}}</td>
                                 <td>{{item.telefono}}</td>

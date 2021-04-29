@@ -12,11 +12,13 @@ import {TerceroService} from 'src/app/services/tercero.service';
 export class TerceroRegistroComponent implements OnInit {
   tercero : Tercero;
   terceros : Tercero[];
+  searchText :string;
   constructor(private terceroServices : TerceroService) { }
 
   ngOnInit(): void {
    this.tercero = new Tercero();
    this.get();
+
   }
 
   RegistrarTercero(){

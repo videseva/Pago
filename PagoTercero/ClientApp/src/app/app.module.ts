@@ -15,6 +15,7 @@ import { TerceroService} from'../app/services/tercero.service';
 import { from } from 'rxjs';
 import { TerceroConsultaComponent } from './Pagos/tercero-consulta/tercero-consulta.component';
 import { PagoTerceroRegistroComponent } from './Pagos/pago-tercero-registro/pago-tercero-registro.component';
+import { FiltroTerceroPipe } from './pipe/filtro-tercero.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PagoTerceroRegistroComponent } from './Pagos/pago-tercero-registro/pago
     FetchDataComponent,
     TerceroRegistroComponent,
     TerceroConsultaComponent,
-    PagoTerceroRegistroComponent
+    PagoTerceroRegistroComponent,
+    FiltroTerceroPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

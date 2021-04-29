@@ -9,6 +9,7 @@ import {TerceroService} from 'src/app/services/tercero.service';
 })
 export class TerceroConsultaComponent implements OnInit {
   terceros : Tercero[];
+  searchText :string;
   
   constructor(private terceroServices : TerceroService) { }
   ngOnInit(): void {

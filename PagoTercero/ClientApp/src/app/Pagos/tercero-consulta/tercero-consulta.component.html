@@ -1,7 +1,16 @@
 <div class="card">
     <div class="card-body">
-        <h3>CONSULTAR ESTUDIANTES</h3>
+        <h3>CONSULTAR</h3>
         <hr>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label>filtar : </label>
+                <input type="text" class="form-control"  id="searchText"name="searchText"  [(ngModel)]="searchText" placeholder="Identificación">
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary"> Buscar</button>
+            </div>
+            </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -11,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of terceros; index as i">
+                <tr *ngFor="let item of terceros |filtroTercero:searchText; index as i">
                     <td>{{item.terceroId}}</td>
                     <td>{{item.nombre}}</td>
                     <td>{{item.telefono}}</td>
